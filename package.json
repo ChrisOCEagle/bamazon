@@ -1,0 +1,19 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "This is a command line node application that mimics amazon's database services",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisOCEagle/bamazon.git"
+  },
+  "author": "Christopher O'Connell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisOCEagle/bamazon/issues"
+  },
+  "homepage": "https://github.com/ChrisOCEagle/bamazon#readme"
+}
