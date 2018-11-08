@@ -43,5 +43,3 @@ VALUES ("Xbox One S", 294.80, 300, "Technology");
 
 INSERT INTO products (product_name, price, stock_quantity, department_name)
 VALUES ("GeForce GTX 1050 graphics card", 129.99, 35, "Technology");
-
-SELECT * FROM products;
