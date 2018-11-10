@@ -44,15 +44,26 @@ function display() {
                         "\n----------------------------------\n"
                     );
                 }
+                // The app should then prompt users with two messages.
+                inquirer.prompt(
+                    [
+                        // The first should ask them the ID of the product they would like to buy.
+                        {
+                            name: "id",
+                            type: "list",
+                            message: "What product would you like to purchase?",
+                            choices: data.item_id
+                        }
+                        // The second message should ask how many units of the product they would like to buy.
+                    ]
+                ).then(function(res) {
+                    console.log(res);
+                });    
                 connection.end();
             };
         }
     );
 };
-
-// The app should then prompt users with two messages.
-    // The first should ask them the ID of the product they would like to buy.
-    // The second message should ask how many units of the product they would like to buy.
 
 // Once the customer has placed the order,
 // your application should check if your store has enough of the product to meet
