@@ -1,9 +1,54 @@
-var mysql = require("mysql"),
-    inquirer = require("inquirer");
+const mysql = require("mysql");
+var inquirer = require("inquirer");
+
+var connection = mysql.createConnection({
+    host: "localhost",
+  
+    // Your port; if not 3306
+    port: 3306,
+  
+    // Your username
+    user: "root",
+  
+    // Your password
+    password: "root",
+    database: "bamazon_db"
+});
+
+connection.connect(function(err) {
+    if (err) {
+        console.log(err);
+    } else {
+        display();
+    };
+});
 
 // Then create a Node application called `bamazonCustomer.js`.
 // Running this application will first display all of the items available for sale.
 // Include the ids, names, and prices of products for sale.
+function display() {
+    console.log("Displaying all available data...\n");
+    connection.query(
+        "SELECT * FROM products",
+        function(err, data) {
+            if (err) {
+                throw err;
+            } else {
+                for (let i = 0; i < data.length; i++) {
+                    console.log(
+                        "Item ID: " + data[i].item_id + 
+                        "\nProduct Name: " + data[i].product_name +
+                        "\nDepartment Name: " + data[i].department_name +
+                        "\nPrice: " + data[i].price +
+                        "\nStock Quantity: " + data[i].stock_quantity +
+                        "\n----------------------------------\n"
+                    );
+                }
+                connection.end();
+            };
+        }
+    );
+};
 
 // The app should then prompt users with two messages.
     // The first should ask them the ID of the product they would like to buy.
